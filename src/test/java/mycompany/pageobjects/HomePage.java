@@ -7,9 +7,6 @@ import org.openqa.selenium.support.FindBy;
 
 public class HomePage extends PageObject {
 
-    public String url = "http://www.rightmove.co.uk";
-
-
     @FindBy(css = "#searchLocation")
     public WebElement searchLocation_txt;
 

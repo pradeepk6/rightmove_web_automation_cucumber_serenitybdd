@@ -21,14 +21,14 @@ built with:
 * need Java8 and maven to run.
 * download a latest driver binary into project home directory
   or add to system path 
-  Run mvn command : mvn verify 
+* run mvn command : mvn verify 
 * browser can be changed in pom.xml(webdriver.driver) or via maven-commandline
 * headless option can be commented out in serenity.properties file
-* For Serenity reports go to target/site/serenity and click index.html
+* for Serenity reports go to target/site/serenity and click index.html
 
 ##### tested on:
 * os : windows 10, travis-ci.org(ubuntu)
-* latest versions of Firefox and chrome as well as their headless versions
+* latest versions of Firefox and Chrome as well as their headless versions
  
   
   

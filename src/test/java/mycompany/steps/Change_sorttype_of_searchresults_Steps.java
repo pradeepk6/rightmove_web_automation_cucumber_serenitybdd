@@ -33,25 +33,19 @@ public class Change_sorttype_of_searchresults_Steps {
     String firstNonFeaturedPropAddr;
 
     @Before
-    public void setupTestData() {
+    public void setupTestData() throws IOException  {
         String testDataFile = "src/test/resources/testdata/change_sorttype.properties";
         properties = new Properties();
-        try{
-            properties.load( Files.newInputStream(Paths.get(testDataFile)));
-        }catch(IOException ioe) {
-            fail("Unable to load test data file : " + testDataFile );
-        }
+        properties.load( Files.newInputStream(Paths.get(testDataFile)));
     }
 
     @Given("^user has successfully searched properties for sale with different list dates$")
     public void user_has_search_results_of_properties_for_sale_with_different_list_dates() {
         homePage = new HomePage(driver);
         homePage.open();
-        assertTrue(homePage.isOnPage());
         homePage.fillSearchLocation(properties.getProperty("sale.location"));
         homePage.clickForSale();
         searchPage = new SearchPage(driver);
-        assertTrue(searchPage.isOnPage());
         searchPage.fillMinPrice(properties.getProperty("sale.minPrice"));
         searchPage.fillMaxPrice(properties.getProperty("sale.maxPrice"));
         searchPage.clickSubmit();
@@ -61,11 +55,9 @@ public class Change_sorttype_of_searchresults_Steps {
     public void user_has_successfully_searched_properties_for_rent_with_different_list_dates() {
         homePage = new HomePage(driver);
         homePage.open();
-        assertTrue(homePage.isOnPage());
         homePage.fillSearchLocation(properties.getProperty("rent.location"));
         homePage.clickForRent();
         searchPage = new SearchPage(driver);
-        assertTrue(searchPage.isOnPage());
         searchPage.fillMinPrice(properties.getProperty("rent.minPrice"));
         searchPage.fillMaxPrice(properties.getProperty("rent.maxPrice"));
         searchPage.clickSubmit();
@@ -76,7 +68,6 @@ public class Change_sorttype_of_searchresults_Steps {
     @When("^user changes the sort type of search results to \"([^\"]*)\"$")
     public void user_changes_the_sort_type_of_search_results_to(String arg1) {
         searchResultsPage = new SearchResultsPage(driver);
-        assertTrue(searchResultsPage.isOnPage());
         searchResultsPage.isOnPage();
         searchResultsPage.changeSortType();
     }
